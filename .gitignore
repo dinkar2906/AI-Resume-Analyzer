@@ -1,0 +1,29 @@
+# Java
+
+target/
+*.class
+*.jar
+
+# IntelliJ
+
+.idea/
+*.iml
+
+# VS Code
+
+.vscode/
+
+# Python
+
+**pycache**/
+venv/
+
+# Environment
+
+.env
+
+# OS
+
+.DS_Store
+Thumbs.db
+
