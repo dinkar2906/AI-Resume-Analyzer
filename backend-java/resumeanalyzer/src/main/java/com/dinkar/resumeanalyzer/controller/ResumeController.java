@@ -5,6 +5,8 @@ import com.dinkar.resumeanalyzer.dto.ResumeResponse;
 import com.dinkar.resumeanalyzer.service.ResumeAnalyzerService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/resume")
 public class ResumeController {
@@ -19,8 +21,20 @@ public class ResumeController {
     public ResumeResponse analyze(
             @RequestBody ResumeRequest request) {
 
-        return new ResumeResponse(
+        List<String> skills =
                 service.extractSkills(
-                        request.getResumeText()));
+                        request.getResumeText());
+
+        int score =
+                service.calculateATSScore(skills);
+
+        List<String> suggestions =
+                service.generateSuggestions(skills);
+
+        return new ResumeResponse(
+                skills,
+                score,
+                suggestions
+        );
     }
 }

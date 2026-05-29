@@ -1,6 +1,7 @@
 package com.dinkar.resumeanalyzer.dto;
 
 public class ResumeRequest {
+
     private String resumeText;
 
     public String getResumeText() {
