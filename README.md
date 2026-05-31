@@ -1,33 +1,31 @@
 # AI Resume Analyzer API
 
-Production-grade AI-powered resume analysis platform built using:
-
-* Java Spring Boot
-* PostgreSQL
-* Python FastAPI
-* JWT Authentication
-* Docker
-
 ## Features
+- Resume PDF Upload
+- Skill Extraction
+- ATS Score Calculation
+- Resume Suggestions
+- PostgreSQL Storage
+- Resume History API
+- Swagger Documentation
+- Docker Support
 
-* Resume Upload
-* ATS Score Analysis
-* Skill Extraction
-* Role Prediction
-* AI Resume Insights
+## Tech Stack
+- Java 21
+- Spring Boot
+- PostgreSQL
+- Spring Data JPA
+- Apache PDFBox
+- Swagger/OpenAPI
+- Docker
 
-## Architecture
+## API Endpoints
+POST /api/resume/upload
+GET /api/resume/history
+GET /api/health
 
-Java Spring Boot handles:
+## Run Locally
+...
 
-* REST APIs
-* Authentication
-* Database
-* File handling
-
-Python FastAPI handles:
-
-* NLP
-* AI analysis
-* Skill extraction
-
+## Run With Docker
+...
