@@ -1,7 +1,7 @@
 package com.dinkar.resumeanalyzer.service;
 
 import org.springframework.stereotype.Service;
-
+import com.dinkar.resumeanalyzer.dto.MatchResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,4 +66,45 @@ public class ResumeAnalyzerService {
 
         return suggestions;
     }
+    public MatchResponse matchResume(
+            String resumeText,
+            String jobDescription) {
+
+        List<String> resumeSkills =
+                extractSkills(resumeText);
+
+        List<String> jobSkills =
+                extractSkills(jobDescription);
+
+        List<String> matchedSkills =
+                new ArrayList<>();
+
+        List<String> missingSkills =
+                new ArrayList<>();
+
+        for (String skill : jobSkills) {
+
+            if (resumeSkills.contains(skill)) {
+                matchedSkills.add(skill);
+            } else {
+                missingSkills.add(skill);
+            }
+        }
+
+        int score = 0;
+
+        if (!jobSkills.isEmpty()) {
+
+            score =
+                    (matchedSkills.size() * 100)
+                            / jobSkills.size();
+        }
+
+        return new MatchResponse(
+                score,
+                matchedSkills,
+                missingSkills
+        );
+    }
+
 }
